@@ -3,12 +3,12 @@ import requests, json
 
 class req_send():
     ''' class to send url '''
-    def __init__(self, key:str, base_url:str='https://api.priority1.com/') -> json:
+    def __init__(self, key:str, base_url:str='https://api.priority1.com'):
         self.base_url = base_url
         self.key = key
 
     
-    def send_req(self, endpoint:str, payload:json, request:str) -> str:
+    def send_req(self, endpoint:str, payload:dict, request:str) -> str:
         ''' sends a request to P1 and return the string
             takes in endpoint string and json data for
             request body '''
@@ -18,11 +18,18 @@ class req_send():
             'accept' : 'application/json',
             'Content-type' : 'application/json'
         }
+        
+        # print(headers)
+        # print(payload)
 
-        url = self.base_url + endpoint
+        url = self.base_url + endpoint.value
+
+        data = json.dumps(payload)
+
+        # print(url)
 
         try:
-            result = requests.request(request, url, headers=headers, data=payload)
+            result = requests.request(request.value, url=url, headers=headers, data=data)
             return result.text
         
         except requests.exceptions.HTTPError as e:

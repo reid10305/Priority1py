@@ -1,5 +1,7 @@
 from Priority1py.request import req_send
 from Priority1py.strings import Endpoint, Crud, Accessorial, IDType
+# from request import req_send
+# from strings import Endpoint, Crud, Accessorial, IDType
 import json
 
 class Priority1py():
@@ -21,22 +23,27 @@ class Priority1py():
         # send request and convert to json 
         res_str = self.req.send_req(endpoint=Endpoint.LTL_SHIPMENT_STATUS, payload=payload, request=Crud.POST)
         res_json = json.loads(res_str)
+        print(res_json)
 
         # test for no shipments found
         if 'No shipments found' in res_json:
             raise Exception('No shipments found matching that ID')
 
         # parse json for status list
-        list = res_json['shipments'][0][target]
+        try:
+            list = res_json['shipments'][0][target]
 
-        return list
+            return list
+        
+        except KeyError:
+            return 'Bad '
     
 
     def get_latest_tracking(self, identifier:str, identifiertype:str):
         ''' get the latest tracking update '''
 
         # get tracking statuses
-        status_list = self.__get_items_from_tracking(identifier=identifier, identifiertype=identifiertype, target='trackingStatuses')
+        status_list = self.__get_items_from_tracking(identifier=identifier, identifiertype=identifiertype.value, target='trackingStatuses')
 
         latest_status = status_list[0]
         

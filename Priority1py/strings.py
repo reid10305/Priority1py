@@ -4,8 +4,8 @@ from enum import Enum
 class Endpoint(Enum):
     def __str__(self):
         return self.value
-    LTL_RATE_QUOTE = '/v2/ltl/quotes/rates'
-    LTL_SHIPMENT_STATUS = '/v2/ltl/shipments/status'
+    LTL_RATE_QUOTE = '/v2/ltl/quotes/rates/'
+    LTL_SHIPMENT_STATUS = '/v2/ltl/shipments/status/'
 
 
 class Crud(Enum):
