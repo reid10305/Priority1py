@@ -58,7 +58,7 @@ class Priority1py():
         ''' get P1 identifier number '''
 
         # get identifiers list
-        id_list  = self.__get_items_from_tracking(identifer=identifier, identifiertype=identifiertype, target='shipmentIdentifiers')
+        id_list  = self.__get_items_from_tracking(identifier=identifier, identifiertype=identifiertype, target='shipmentIdentifiers')
         
         # find the target identifier by type
         for i in id_list:
