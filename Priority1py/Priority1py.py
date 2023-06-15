@@ -23,7 +23,6 @@ class Priority1py():
         # send request and convert to json 
         res_str = self.req.send_req(endpoint=Endpoint.LTL_SHIPMENT_STATUS, payload=payload, request=Crud.POST)
         res_json = json.loads(res_str)
-        print(res_json)
 
         # test for no shipments found
         if 'No shipments found' in res_json:
