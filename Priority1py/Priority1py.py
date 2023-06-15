@@ -36,7 +36,7 @@ class Priority1py():
         ''' get the latest tracking update '''
 
         # get tracking statuses
-        status_list = self.__get_items_from_tracking(identifer=identifier, identifiertype=identifiertype, target='trackingStatuses')
+        status_list = self.__get_items_from_tracking(identifier=identifier, identifiertype=identifiertype, target='trackingStatuses')
 
         latest_status = status_list[0]
         
