@@ -1,3 +1,3 @@
 from Priority1py import Priority1py
-from request import req_send
-from strings import Endpoint, Crud, Accessorial, IDType
+from Priority1py.request import req_send
+from Priority1py.strings import Endpoint, Crud, Accessorial, IDType
