@@ -34,3 +34,10 @@ class IDType(Enum):
     PICKUP_NUM = 'PICKUP'
     PO = 'PURCHASE_ORDER'
     EXT = 'EXTERNAL'
+
+class Details(Enum):
+    def __str__(self):
+        return self.value
+    CARRIER = 'carrierName'
+    CARRIER_CODE = 'carrierCode'
+    STATUS = 'status'
