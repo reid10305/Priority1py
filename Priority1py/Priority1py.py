@@ -1,7 +1,7 @@
-# from Priority1py.request import req_send
-# from Priority1py.strings import Endpoint, Crud, Accessorial, IDType
-from request import req_send
-from strings import Endpoint, Crud, Accessorial, IDType, Details
+from Priority1py.request import req_send
+from Priority1py.strings import Endpoint, Crud, Accessorial, IDType
+# from request import req_send
+# from strings import Endpoint, Crud, Accessorial, IDType, Details
 import json
 from datetime import datetime
 
